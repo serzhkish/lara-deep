@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Welcome</title>
+        <title>About</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -61,6 +61,10 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .content-txt{
+                margin: 30px;
+            }
         </style>
     </head>
     <body>
@@ -81,13 +85,22 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Hello User!
+                    News
                 </div>
 
                 <div class="links">
+                    <a href="/">home</a>
                     <a href="/about">about</a>
-                    <a href="/news">news</a>
                 </div>
+
+                <div class="content-txt">
+                    <p>news 1</p>
+                    <p>news 2</p>
+                    <p>news 3</p>
+                    <p>news 4</p>
+                    <p>news 5</p>
+                </div>
+
             </div>
         </div>
     </body>
