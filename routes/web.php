@@ -30,22 +30,22 @@ Route::get('/about', [SiteInfoController::class, 'index'])
     ->name('site::about');
 
 /**
- * Категории
- */
-Route::get('/category', [CategoryController::class, 'index'])
-    ->name('category::index');
-Route::get('/category/{id}', [CategoryController::class, 'category'])
-    ->where('id', '[0-9]+')
-    ->name('category::one');
-
-/**
  * Новости
  */
-Route::get('/news', [NewsController::class, 'index'])
-    ->name('news::index');
-Route::get('/news/card/{id}', [NewsController::class, 'card'])
-    ->where('id', '[0-9]+')
-    ->name('news::card');
+Route::group([
+    'prefix' => '/news',
+    'as' => 'news::'
+], function() {
+    Route::get('/{id}', [NewsController::class, 'index'])
+        ->where('id', '[0-9]+')
+        ->name('index');
+    Route::get('/card/{id}', [NewsController::class, 'card'])
+        ->where('id', '[0-9]+')
+        ->name('card');
+    Route::get('/category', [NewsController::class, 'categories'])
+        ->name('category');
+});
+
 
 /**
  * Админка

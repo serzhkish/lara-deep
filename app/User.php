@@ -36,4 +36,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    private $name = 'Alex';
+
+    function getName() {
+        return $this->name;
+    }
 }
