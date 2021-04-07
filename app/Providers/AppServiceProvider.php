@@ -23,6 +23,21 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $menu = [
+            [
+            'title' => 'Главная',
+            'alias' => 'user::welcome'
+            ],
+            [
+            'title' => 'О сайте',
+            'alias' => 'site::about'
+            ],
+            [
+            'title' => 'Категории',
+            'alias' => 'news::category'
+            ]
+        ];
+
+        \Illuminate\Support\Facades\View::share('menu', $menu);
     }
 }
