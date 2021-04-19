@@ -26,8 +26,21 @@ Route::get('/', [UserController::class, 'welcome'])
 /**
  * О сайте
  */
-Route::get('/about', [SiteInfoController::class, 'index'])
-    ->name('site::about');
+Route::group([
+    'prefix' => '/about',
+    'as' => 'site::'
+], function() {
+    Route::get('/view', [SiteInfoController::class, 'index'])
+        ->name('about');
+    Route::post('/view', [SiteInfoController::class, 'save'])
+        ->name('send');
+});
+// Route::get('/about', [SiteInfoController::class, 'index'])
+//     ->name('site::about');
+// Route::post('/about', [SiteInfoController::class, 'save'])
+//     ->name('site::about');
+// Route::match(['get', 'post'], '/about', [SiteInfoController::class, 'index'])
+//         ->name('site::about');
 
 /**
  * Новости
@@ -36,12 +49,15 @@ Route::group([
     'prefix' => '/news',
     'as' => 'news::'
 ], function() {
+    // по категории
     Route::get('/{id}', [NewsController::class, 'index'])
         ->where('id', '[0-9]+')
         ->name('index');
+    // карточка новости
     Route::get('/card/{id}', [NewsController::class, 'card'])
         ->where('id', '[0-9]+')
         ->name('card');
+    // категории
     Route::get('/category', [NewsController::class, 'categories'])
         ->name('category');
 });

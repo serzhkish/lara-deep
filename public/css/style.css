@@ -5,7 +5,7 @@
 .menu-items-a {
     display: block;
     width: 115px;
-    height: 25px;
+    min-height: 40px;
     background: #4e9caf;
     padding: 10px;
     text-align: center;
@@ -44,4 +44,12 @@
     text-transform: uppercase;
     font-weight: 600;
     list-style-type: none;
+}
+
+.content-txt {
+    margin: 10px;
+}
+
+.btn-space {
+    margin: 5px;
 }
