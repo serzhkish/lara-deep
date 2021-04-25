@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 use App\Http\Controllers\SiteInfoController;
+use App\Http\Controllers\DBController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
